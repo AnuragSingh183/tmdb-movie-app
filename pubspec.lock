@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.6.1"
+    version: "2.5.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -50,6 +50,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
+<<<<<<< HEAD
   crypto:
     dependency: transitive
     description:
@@ -57,6 +58,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+=======
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -95,6 +98,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
   google_fonts:
     dependency: "direct main"
     description:
@@ -102,6 +106,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+=======
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   http:
     dependency: transitive
     description:
@@ -137,6 +143,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0"
+<<<<<<< HEAD
   path_provider:
     dependency: transitive
     description:
@@ -172,6 +179,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.3"
+=======
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   pedantic:
     dependency: transitive
     description:
@@ -179,6 +188,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.11.1"
+<<<<<<< HEAD
   platform:
     dependency: transitive
     description:
@@ -200,6 +210,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.2.3"
+=======
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   sky_engine:
     dependency: transitive
     description: flutter
@@ -211,7 +223,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.1"
+    version: "1.8.0"
   stack_trace:
     dependency: transitive
     description:
@@ -246,14 +258,22 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "0.3.0"
+=======
+    version: "0.2.19"
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   tmdb_api:
     dependency: "direct main"
     description:
       name: tmdb_api
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "1.2.7"
+=======
+    version: "2.0.0-nullsafety"
+>>>>>>> a776c588e9e16f3e0fb2dfb8b8fb83cd5c78fb7b
   typed_data:
     dependency: transitive
     description:

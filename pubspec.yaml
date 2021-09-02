@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  tmdb_api:
+  tmdb_api: ^2.0.0-nullsafety
   google_fonts:
 
 
