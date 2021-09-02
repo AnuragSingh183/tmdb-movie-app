@@ -13,6 +13,7 @@ class _HomeState extends State<Home> {
   List trendingmovies = [];
   List topratedmovies = [];
   List tv = [];
+  bool _isLoading = true;
   final String apikey = "d0896e27de2adef1a51256072ad32558";
   final String readaccesstoken =
       "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkMDg5NmUyN2RlMmFkZWYxYTUxMjU2MDcyYWQzMjU1OCIsInN1YiI6IjYxMmYwNmVjOTNkYjkyMDA4OGFmN2FjYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.XPQVu_yqBoZnnJO2OGh95108de5uRckZAY74zE80bro";
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> {
       trendingmovies = trendingresult["results"];
       topratedmovies = topratedresult["results"];
       tv = tvresult["results"];
+      _isLoading = false;
     });
     print(trendingmovies);
   }
@@ -52,28 +54,38 @@ class _HomeState extends State<Home> {
         children: [
           Text(
             "Trending Movies",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    child: Column(
-                      children: [
-                        
-                        Text(trendingmovies[index]['title'] == null
-                            ? "Unknown"
-                            : trendingmovies[index]['title']),
-                      ],
+          _isLoading
+              ? Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(
+                      backgroundColor: Colors.white,
                     ),
                   ),
-                );
-              },
-              itemCount: trendingmovies.length,
-            ),
-          ),
+                )
+              : Expanded(
+                  child: ListView.builder(
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          color: Colors.grey[800],
+                          child: Column(
+                            children: [
+                              Text(trendingmovies[index]['title'] == null
+                                  ? "Unknown"
+                                  : trendingmovies[index]['title'],
+                                  style: TextStyle(color: Colors.white),
+                                  ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: trendingmovies.length,
+                  ),
+                ),
         ],
       ),
     );
