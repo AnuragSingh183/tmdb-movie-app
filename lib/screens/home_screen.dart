@@ -33,6 +33,7 @@ class _HomeState extends State<Home> {
       topratedmovies = topratedresult["results"];
       tv = tvresult["results"];
     });
+    print(trendingmovies);
   }
 
   @override
@@ -40,6 +41,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
+        centerTitle: true,
         title: Text(
           "Movie App",
           style: TextStyle(fontSize: 20),
@@ -57,7 +59,16 @@ class _HomeState extends State<Home> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text("$index ${trendingmovies[index]['title']}"),
+                  child: Card(
+                    child: Column(
+                      children: [
+                        
+                        Text(trendingmovies[index]['title'] == null
+                            ? "Unknown"
+                            : trendingmovies[index]['title']),
+                      ],
+                    ),
+                  ),
                 );
               },
               itemCount: trendingmovies.length,
