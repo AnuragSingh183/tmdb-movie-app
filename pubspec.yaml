@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   tmdb_api: ^2.0.0-nullsafety
-  google_fonts:
+  
 
 
   # The following adds the Cupertino Icons font to your application.
