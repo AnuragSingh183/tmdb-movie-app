@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import './screens/trending.dart';
 import './screens/top_rated.dart';
 import 'package:tmdb_api/tmdb_api.dart';
+import './screens/tv.dart';
 void main(){
   runApp(MyApp());
 
@@ -28,7 +29,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List trendingmovies = [];
   List topratedmovies = [];
-  List tv = [];
+  List tvshows = [];
   
   final String apikey = "d0896e27de2adef1a51256072ad32558";
   final String readaccesstoken =
@@ -48,7 +49,7 @@ class _HomeState extends State<Home> {
     setState(() {
       trendingmovies = trendingresult["results"];
       topratedmovies = topratedresult["results"];
-      tv = tvresult["results"];
+      tvshows = tvresult["results"];
       
     });
     
@@ -57,7 +58,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text( 'Flutter Movie App ❤️'),
+          title: Text( 'Flutter Movie App '),
+          
           backgroundColor: Colors.transparent,
         ),
         body: ListView(
@@ -66,6 +68,7 @@ class _HomeState extends State<Home> {
             TrendingMovies(
               trendingmovies
             ),
+            TV(tvshows)
             
             
           ],
