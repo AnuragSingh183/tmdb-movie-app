@@ -1,9 +1,5 @@
-
-
-  
-
 import 'package:flutter/material.dart';
-
+import 'package:tmdb/screens/description.dart';
 
 
 class TrendingMovies extends StatelessWidget {
@@ -34,6 +30,9 @@ const TrendingMovies(this.trendingmovies);
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Description(
+                      
+                      )));
                       },
                       child: Container(
                         width: 140,
