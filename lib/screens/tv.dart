@@ -3,6 +3,7 @@
   
 
 import 'package:flutter/material.dart';
+import 'package:tmdb_api/tmdb_api.dart';
 
 
 
@@ -34,8 +35,19 @@ const TV(this.tvshows);
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
+                        Navigator.of(context).pushNamed("/description",arguments: {
+                           "name":tvshows[index]["original_name"],
+                        "description":tvshows[index]["overview"],
+                        "posterurl": 'https://image.tmdb.org/t/p/w500' +tvshows[index]["poster_path"],
+                        "rating":tvshows[index]["vote_average"],
+                        "release":tvshows[index]["release_date"].toString(),
+                        "bannerurl":'https://image.tmdb.org/t/p/w500' +tvshows[index]["backdrop_path"]
+                        });
                       },
-                      child: Container(
+                      child: 
+                      tvshows[index]["original_name"]!=null?
+                      Container(
+
                         width: 140,
                         child: Column(
                           children: [
@@ -59,7 +71,7 @@ const TV(this.tvshows);
                             )
                           ],
                         ),
-                      ),
+                      ):Container(),
                     );
                   }))
         ],

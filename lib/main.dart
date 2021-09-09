@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:tmdb/screens/description.dart';
 import './screens/trending.dart';
 import './screens/top_rated.dart';
 import 'package:tmdb_api/tmdb_api.dart';
@@ -10,15 +11,23 @@ void main(){
 }
 
 class MyApp extends StatelessWidget{
+
   Widget build(BuildContext context){
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme:ThemeData(brightness: Brightness.dark,
       primaryColor: Colors.blue),
       home: Home(),
+      routes: {
+        "/description":(_)=> Description("name", "description", "posterurl", "rating", "release", "bannerurl")
+      },
     );
   }
+  
 }
+
+
+
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -58,7 +67,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-          title: Text( 'Flutter Movie App '),
+          title: Text( 'IMDB'),
           
           backgroundColor: Colors.transparent,
         ),
@@ -75,3 +84,4 @@ class _HomeState extends State<Home> {
         ));
   }
 }
+

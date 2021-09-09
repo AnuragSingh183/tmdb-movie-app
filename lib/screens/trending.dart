@@ -30,11 +30,19 @@ const TrendingMovies(this.trendingmovies);
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Description(
-                      
-                      )));
+                      Navigator.of(context).pushNamed("/description",arguments:{
+                        "name":trendingmovies[index]["title"],
+                        "description":trendingmovies[index]["overview"],
+                        "posterurl": 'https://image.tmdb.org/t/p/w500' +trendingmovies[index]["poster_path"],
+                        "rating":trendingmovies[index]["vote_average"],
+                        "release":trendingmovies[index]["release_date"].toString(),
+                        "bannerurl":'https://image.tmdb.org/t/p/w500' +trendingmovies[index]["backdrop_path"]
+                      } );
                       },
-                      child: Container(
+                      child: 
+                      trendingmovies[index]["title"]!=null?
+                      Container(
+                        
                         width: 140,
                         child: Column(
                           children: [
@@ -58,7 +66,7 @@ const TrendingMovies(this.trendingmovies);
                             )
                           ],
                         ),
-                      ),
+                      ):Container(),
                     );
                   }))
         ],

@@ -1,10 +1,5 @@
-
-
-  
-
 import 'package:flutter/material.dart';
-
-
+import 'package:tmdb/screens/description.dart';
 
 class TopRatedMovies extends StatelessWidget {
   final List topratedmovies;
@@ -34,8 +29,21 @@ const TopRatedMovies(this.topratedmovies);
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
+                        Navigator.of(context).pushNamed("/description",arguments: {
+                           "name":topratedmovies[index]["title"],
+                        "description":topratedmovies[index]["overview"],
+                        "posterurl": 'https://image.tmdb.org/t/p/w500' +topratedmovies[index]["poster_path"],
+                        "rating":topratedmovies[index]["vote_average"],
+                        "release":topratedmovies[index]["release_date"].toString(),
+                        "bannerurl":'https://image.tmdb.org/t/p/w500' +topratedmovies[index]["backdrop_path"]
+                        });
+
+                      
                       },
-                      child: Container(
+                      child: 
+                      topratedmovies[index]["title"]!=null?
+                      Container(
+                        
                         width: 140,
                         child: Column(
                           children: [
@@ -59,7 +67,7 @@ const TopRatedMovies(this.topratedmovies);
                             )
                           ],
                         ),
-                      ),
+                      ):Container(),
                     );
                   }))
         ],
