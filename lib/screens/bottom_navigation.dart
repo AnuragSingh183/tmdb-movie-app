@@ -17,6 +17,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     return Scaffold(
       body: screens[currIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.black87,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(
