@@ -30,7 +30,7 @@ class _FavoritesState extends State<Favorites> {
               itemCount: favorites.length,
               itemBuilder: (context, index) {
                 return Dismissible(
-                  key: ValueKey(index),
+                  key: UniqueKey(),
                   background: Container(
                     color: Theme.of(context).errorColor,
                     child: Icon(Icons.delete, color: Colors.white),
@@ -94,20 +94,6 @@ class _FavoritesState extends State<Favorites> {
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Spacer(),
-                                  //InkWell(
-                                  //  onTap: () {
-                                  //  removeFavorites(favorites[index]);
-                                  //ScaffoldMessenger.of(context)
-                                  //  .showSnackBar(
-                                  //    SnackBar(content: Text("Movie removed from favorites")));
-                                  //   setState(() {});
-                                  //},
-                                  //child:
-                                  //Icon(
-                                  //Icons.delete_forever_rounded,
-                                  //color: Colors.redAccent,
-                                  //size: 30,
-                                  //))
                                 ],
                               ),
                             ],

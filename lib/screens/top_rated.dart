@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tmdb/screens/description.dart';
 
 class TopRatedMovies extends StatelessWidget {
   final List topratedmovies;
 
-const TopRatedMovies(this.topratedmovies);
+  const TopRatedMovies(this.topratedmovies);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,14 +11,8 @@ const TopRatedMovies(this.topratedmovies);
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Top Rated Movies',
-            style:TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize:20
-            )
-            
-          ),
+          Text('Top Rated Movies',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
           SizedBox(height: 10),
           Container(
               height: 270,
@@ -29,45 +22,46 @@ const TopRatedMovies(this.topratedmovies);
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.of(context).pushNamed("/description",arguments: {
-                           "name":topratedmovies[index]["title"],
-                        "description":topratedmovies[index]["overview"],
-                        "posterurl": 'https://image.tmdb.org/t/p/w500' +topratedmovies[index]["poster_path"],
-                        "rating":topratedmovies[index]["vote_average"],
-                        "release":topratedmovies[index]["release_date"].toString(),
-                        "bannerurl":'https://image.tmdb.org/t/p/w500' +topratedmovies[index]["backdrop_path"]
+                        Navigator.of(context)
+                            .pushNamed("/description", arguments: {
+                          "name": topratedmovies[index]["title"],
+                          "description": topratedmovies[index]["overview"],
+                          "posterurl": 'https://image.tmdb.org/t/p/w500' +
+                              topratedmovies[index]["poster_path"],
+                          "rating": topratedmovies[index]["vote_average"],
+                          "release":
+                              topratedmovies[index]["release_date"].toString(),
+                          "bannerurl": 'https://image.tmdb.org/t/p/w500' +
+                              topratedmovies[index]["backdrop_path"]
                         });
-
-                      
                       },
-                      child: 
-                      topratedmovies[index]["title"]!=null?
-                      Container(
-                        
-                        width: 140,
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://image.tmdb.org/t/p/w500' +
-                                          topratedmovies[index]['poster_path']),
-                                ),
+                      child: topratedmovies[index]["title"] != null
+                          ? Container(
+                              width: 140,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        image: NetworkImage(
+                                            'https://image.tmdb.org/t/p/w500' +
+                                                topratedmovies[index]
+                                                    ['poster_path']),
+                                      ),
+                                    ),
+                                    height: 200,
+                                  ),
+                                  SizedBox(height: 5),
+                                  Container(
+                                    child: Text(
+                                        topratedmovies[index]['title'] != null
+                                            ? topratedmovies[index]['title']
+                                            : 'Loading'),
+                                  )
+                                ],
                               ),
-                              height: 200,
-                            ),
-                            SizedBox(height: 5),
-                            Container(
-                              child: Text(
-                                  
-                                   topratedmovies[index]['title'] != null
-                                      ? topratedmovies[index]['title']
-                                      : 'Loading'),
                             )
-                          ],
-                        ),
-                      ):Container(),
+                          : Container(),
                     );
                   }))
         ],
