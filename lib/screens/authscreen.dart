@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:provider/provider.dart';
 import 'package:tmdb/providers.dart';
 import '../providers.dart';
@@ -30,10 +30,12 @@ class _AuthScreenState extends State<AuthScreen> {
     setState(() {
       _isLoading = true;
     });
-    if (_authData == AuthMode.Login) {
+    if (_authMode == AuthMode.Login) {
+      await Provider.of<Auth>(context, listen: false)
+          .login(_authData["email"]!, _authData["password"]!);
     } else {
       await Provider.of<Auth>(context, listen: false)
-          .Signup(_authData["email"]!, _authData["password"]!);
+          .signup(_authData["email"]!, _authData["password"]!);
     }
     setState(() {
       _isLoading = false;
@@ -162,23 +164,26 @@ class _AuthScreenState extends State<AuthScreen> {
                                           ),
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 30.0, vertical: 8.0),
-                                          color: Theme.of(context).primaryColor,
+                                          color: Colors.red,
                                           textColor: Theme.of(context)
                                               .primaryTextTheme
                                               .button!
                                               .color,
                                         ),
-                                      FlatButton(
-                                        child: Text(
-                                            '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
-                                        onPressed: _switchAuthMode,
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 30.0, vertical: 4),
-                                        materialTapTargetSize:
-                                            MaterialTapTargetSize.shrinkWrap,
-                                        textColor:
-                                            Theme.of(context).primaryColor,
+                                      SizedBox(
+                                        height: 20,
                                       ),
+                                      FlatButton(
+                                          child: Text(
+                                              '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                                          onPressed: _switchAuthMode,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 30.0, vertical: 4),
+                                          materialTapTargetSize:
+                                              MaterialTapTargetSize.shrinkWrap,
+                                          textColor: Colors.white
+                                          //Theme.of(context).primaryColor,
+                                          ),
                                     ],
                                   ),
                                 ),
@@ -187,7 +192,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      //SizedBox(height: 20),
                     ],
                   ),
                 ),
