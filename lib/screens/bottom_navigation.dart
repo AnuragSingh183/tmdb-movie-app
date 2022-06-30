@@ -3,6 +3,7 @@ import 'package:tmdb/screens/favorites.dart';
 import 'package:tmdb/screens/home.dart';
 
 class BottomNavigation extends StatefulWidget {
+  static const routename = "/bottomNavigation";
   const BottomNavigation({Key? key}) : super(key: key);
 
   @override

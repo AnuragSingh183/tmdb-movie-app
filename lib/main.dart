@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         routes: {
           "/description": (_) => Description("name", "description", "posterurl",
               "rating", "release", "bannerurl"),
+          BottomNavigation.routename: (context) => BottomNavigation()
         },
       ),
     );
