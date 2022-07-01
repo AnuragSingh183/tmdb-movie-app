@@ -15,18 +15,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ChangeNotifierProvider.value(value: Auth())],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme:
-            ThemeData(brightness: Brightness.dark, primaryColor: Colors.blue),
-        home: //BottomNavigation(),
-            AuthScreen(), //Login(),
-        routes: {
-          "/description": (_) => Description("name", "description", "posterurl",
-              "rating", "release", "bannerurl"),
-          BottomNavigation.routename: (context) => BottomNavigation()
-        },
-      ),
+      child: Consumer<Auth>(
+          builder: ((context, auth, child) => MaterialApp(
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                    brightness: Brightness.dark, primaryColor: Colors.blue),
+                home: //BottomNavigation(),
+                    auth.isAuth ? BottomNavigation() : AuthScreen(), //Login(),
+                routes: {
+                  "/description": (_) => Description("name", "description",
+                      "posterurl", "rating", "release", "bannerurl"),
+                  BottomNavigation.routename: (context) => BottomNavigation()
+                },
+              ))),
     );
   }
 }
