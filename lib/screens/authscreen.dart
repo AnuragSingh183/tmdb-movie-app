@@ -138,6 +138,9 @@ class _AuthScreenState extends State<AuthScreen> {
                                 "Login to continue",
                                 style: TextStyle(fontSize: 18),
                               ),
+                              SizedBox(
+                                height: 15,
+                              ),
                               Form(
                                 key: _formkey,
                                 child: SingleChildScrollView(
@@ -145,7 +148,21 @@ class _AuthScreenState extends State<AuthScreen> {
                                     children: <Widget>[
                                       TextFormField(
                                         decoration: InputDecoration(
-                                            labelText: 'E-Mail'),
+                                            border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.white),
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                    color: Colors.white),
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            labelText: 'Email'),
+                                        textInputAction: TextInputAction.next,
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         validator: (value) {
@@ -159,8 +176,24 @@ class _AuthScreenState extends State<AuthScreen> {
                                           _authData['email'] = value!;
                                         },
                                       ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
                                       TextFormField(
                                         decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5)),
+                                            focusedBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
+                                            enabledBorder: OutlineInputBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
+                                                borderSide: BorderSide(
+                                                    color: Colors.white)),
                                             labelText: 'Password'),
                                         obscureText: true,
                                         controller: _passwordController,
@@ -175,10 +208,29 @@ class _AuthScreenState extends State<AuthScreen> {
                                           _authData['password'] = value!;
                                         },
                                       ),
+                                      SizedBox(
+                                        height: 15,
+                                      ),
                                       if (_authMode == AuthMode.Signup)
+                                        // SizedBox(
+                                        // height: 15,
+                                        //),
                                         TextFormField(
                                           enabled: _authMode == AuthMode.Signup,
                                           decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              focusedBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.white)),
+                                              enabledBorder: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(5),
+                                                  borderSide: BorderSide(
+                                                      color: Colors.white)),
                                               labelText: 'Confirm Password'),
                                           obscureText: true,
                                           validator:
@@ -221,7 +273,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                       ),
                                       FlatButton(
                                           child: Text(
-                                              '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
+                                              '${_authMode == AuthMode.Login ? 'New User ? Signup' : 'Already a User ? Login'} '),
                                           onPressed: _switchAuthMode,
                                           padding: EdgeInsets.symmetric(
                                               horizontal: 30.0, vertical: 4),
